@@ -26,8 +26,8 @@ resource "google_compute_instance" "frontend" {
   }
 
   metadata_startup_script = file(
-    "${path.module}/frontend-startup.sh"
-  )
+  "${path.module}/frontend-startup.sh"
+)
 
   service_account {
 

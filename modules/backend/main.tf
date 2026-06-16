@@ -33,19 +33,8 @@ resource "google_compute_instance" "backend" {
     ]
   }
 
-  metadata_startup_script = <<-EOF
-#!/bin/bash
-
-apt-get update
-
-apt-get install apache2 -y
-
-systemctl enable apache2
-
-systemctl start apache2
-
-echo "Backend Server Running" > /var/www/html/index.html
-
-EOF
+metadata_startup_script = file(
+  "${path.module}/backend-startup.sh"
+)
 
 }

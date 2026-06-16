@@ -65,7 +65,7 @@ resource "google_compute_firewall" "frontend_backend" {
 
   network = data.google_compute_network.vpc.name
 
-  allow {
+    allow {
     protocol = "tcp"
     ports    = ["8080"]
   }
